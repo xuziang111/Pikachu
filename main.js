@@ -23,6 +23,7 @@
               let domCode = document.querySelector('#code')  
               domCode.innerHTML = Prism.highlight(code, Prism.languages.css);
               document.querySelector('#styleTag').innerHTML = code;
+              writeNet();
               domCode.scrollTo(0,domCode.scrollHeight);
               break
         }
@@ -181,6 +182,15 @@ let code = `
             }
         },duration)
       }
-writerCss('',code)
+writerCss('',code,() => {writeNet()})
+function writeNet(){
+    let net = document.createElement("A");
+    net.innerHTML="查看成品";
+    net.setAttribute("href","https://lolimy.club/Pikachu/pika");
+    $("#code").append(net);
+    net.innerHTML="查看源代码";
+    net.setAttribute("href","https://lolimy.club/Pikachu/pika");
+    $("#code").append(net);
+}
     }.call()
 
