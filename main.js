@@ -184,13 +184,14 @@ let code = `
       }
 writerCss('',code,() => {writeNet()})
 function writeNet(){
-    let net = document.createElement("A");
-    net.innerHTML="查看成品";
-    net.setAttribute("href","https://lolimy.club/Pikachu/pika");
-    $("#code").append(net);
-    net.innerHTML="查看源代码";
-    net.setAttribute("href","https://lolimy.club/Pikachu/pika");
-    $("#code").append(net);
+    let netf = document.createElement("A");
+    let nets = document.createElement("A");
+    netf.innerHTML="查看成品";
+    netf.setAttribute("href","https://lolimy.club/Pikachu/pika");
+    $("#code").append(netf);
+    nets.innerHTML="查看源代码";
+    nets.setAttribute("href","https://lolimy.club/Pikachu/pika");
+    $("#code").append(nets);
 }
     }.call()
 
