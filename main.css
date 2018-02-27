@@ -1,0 +1,15 @@
+body{
+    height:100vh
+}
+#code{
+    position: absolute;
+    top:0;
+    left:0;
+    height:50vh;
+    width:100%;
+    overflow: auto;
+}
+.paper-border{
+    position: absolute;
+    bottom:0;
+}
