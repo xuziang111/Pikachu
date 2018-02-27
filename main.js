@@ -1,6 +1,36 @@
 !function(){
+    let duration =50
+    let id
+    function control_bt(){    
+    $('.actions').on('click','button',function(e){
+        let $button = $(e.currentTarget)
+        $button.addClass('active').siblings().removeClass('active');
+        let speed = $button.attr('data-speed')
+        switch(speed){
+            case 'slow':
+              duration = 70
+              break
+            case 'normal':
+              duration = 40 
+              break
+            case 'fast':
+              duration = 0; 
+              console.log('x') 
+              break
+            case 'end':
+            console.log(id)
+              clearTimeout(id)
+              let domCode = document.querySelector('#code')  
+              domCode.innerHTML = Prism.highlight(code, Prism.languages.css);
+              document.querySelector('#styleTag').innerHTML = code;
+              domCode.scrollTo(0,domCode.scrollHeight);
+              break
+        }
+    })
+}
+control_bt.call()
 let code = `
-*{margin:0;padding:0;box-sizing: border-box;}
+/*准备一张纸*/
 .paper-border{
     width:100%;
     height:50%;
@@ -138,19 +168,19 @@ let code = `
     function writerCss(prefix,code,fn){
         let domCode = document.querySelector('#code')
         let styleBox = document.querySelector('#styleBox')
-        let n = 0
-        let id = setInterval(() => {
-        n += 1
-        domCode.innerHTML = Prism.highlight(prefix + code.substring(0,n), Prism.languages.css);
-        styleTag.innerHTML = prefix + code.substring(0,n)
-        domCode.scrollTo(0,domCode.scrollHeight)
-        if(n >= code.length){
-          window.clearInterval(id)
-          fn && fn.call()
-        }
-      },0)
+        let n = 0  
+        id = setTimeout(function run() {
+            n += 1
+            domCode.innerHTML = Prism.highlight(prefix + code.substring(0,n), Prism.languages.css);
+            styleTag.innerHTML = prefix + code.substring(0,n)
+            domCode.scrollTo(0,domCode.scrollHeight)
+            if(n < code.length){
+                id = setTimeout(run,duration)
+            }else{
+                fn&&fn.call()
+            }
+        },duration)
       }
-
 writerCss('',code)
     }.call()
 

@@ -1,10 +1,11 @@
+*{margin:0;padding:0;box-sizing: border-box;}
 body{
     height:100vh
 }
 #code{
     position: absolute;
     top:0;
-    left:0;
+    right:0;
     height:50vh;
     width:100%;
     overflow: auto;
@@ -12,4 +13,25 @@ body{
 .paper-border{
     position: absolute;
     bottom:0;
+}
+.actions{
+    position: absolute;
+    right:0;
+    top:0;
+    font-size:1em;
+    display:flex;
+    flex-direction: column;
+    z-index:2;
+}
+button{
+    background:#ddd;
+    padding:6px 5px;
+    margin:5px;
+    margin-right:20px;
+    box-shadow: 1px 1px 1px black;
+    border: none;
+    outline:none;
+}
+button.active{
+    background:#666;
 }
