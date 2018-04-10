@@ -190,7 +190,7 @@ function writeNet(){
     netf.setAttribute("href","https://lolimy.club/Pikachu/pika");
     $("#code").append(netf);
     nets.innerHTML="查看源代码";
-    nets.setAttribute("href","https://lolimy.club/Pikachu/pika");
+    nets.setAttribute("href","https://github.com/xuziang111/Pikachu");
     $("#code").append(nets);
 }
     }.call()
