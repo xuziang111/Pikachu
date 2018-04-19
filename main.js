@@ -29,6 +29,7 @@
         }
     })
 }
+    
 control_bt.call()
 let code = `
 /*准备一张纸*/
